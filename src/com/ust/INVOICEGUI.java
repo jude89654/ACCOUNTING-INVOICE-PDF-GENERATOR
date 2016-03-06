@@ -1,16 +1,12 @@
 package com.ust;
 
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-
 
 
 /**
@@ -24,15 +20,17 @@ public class INVOICEGUI extends JFrame{
     private JTextField shipToAddressTextField;
     private JLabel shipToTextField;
     private JTextField itemNameTextField;
-    private JTextField textField3;
-    private JTextField textField4;
+    private JTextField quantityTextField;
+    private JTextField priceTextField;
     private JScrollPane BoomPanes;
     private JButton ADDITEMButton;
     private JButton DELETEITEMButton;
     private JTable table1;
-    private JLabel QtyTextField;
-    private JLabel priceTextField;
+    private JLabel QtyLabel;
+    private JLabel priceLabel;
     private JButton GeneratePDFTextField;
+    private JLabel statusLabel;
+    private JLabel TotalLabel;
     List<Object[]> list=new ArrayList<Object[]>();
 
     DefaultTableModel modelo;
@@ -61,14 +59,35 @@ public class INVOICEGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try{
-                    if(itemNameTextField.getText().trim()!=""! ) {
-                        String itemName;
-                    int quantity;
-                    double price;
-                    double amount;
+                    if(itemNameTextField.getText().trim()!=""|
+                            quantityTextField.getText().trim()!=null|
+                            priceLabel.getText().trim()!=null
+                            ) {
+                        String itemName=itemNameTextField.getText().trim();
+                        int quantity=Integer.parseInt(quantityTextField.getText().trim());
+                        double price=Double.parseDouble(priceTextField.getText().trim());
+                        double amount=quantity*price;
+                        modelo.addRow(new Object[]{quantity,itemName,price,amount});
+                        totalize(myTable,TotalLabel);
+                    }
                 }
                 catch (Exception s){
+                    statusLabel.setText("INVALID INPUT");
                     s.printStackTrace();
+                }
+            }
+        });
+
+        //for the DeleteButton
+        DELETEITEMButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(myTable.getSelectedRow()>=0){
+                    modelo.removeRow(myTable.getSelectedRow());
+                    totalize(myTable,TotalLabel);
+                    statusLabel.setText("ROW REMOVED");
+                }else{
+                    statusLabel.setText("NO SELECTED ROWS FOR DELETION");
                 }
             }
         });
@@ -76,7 +95,7 @@ public class INVOICEGUI extends JFrame{
 
     public static void main(String args[]){
 
-        //For pampaganda lang
+        //For pampaganda lang, I like purple kasi e
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 System.out.println(info.getName());
@@ -88,6 +107,17 @@ public class INVOICEGUI extends JFrame{
         }catch (Exception e){
             e.printStackTrace();
         }
+
+        //initialize gui
         new INVOICEGUI();
+    }
+
+    public static void totalize(JTable table,JLabel label){
+        int total=0;
+        for(int x=0;x<table.getRowCount();x++){
+            total+=Double.parseDouble(""+table.getValueAt(x,3));
+
+        }
+        label.setText(""+total);
     }
 }
