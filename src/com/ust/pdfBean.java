@@ -162,7 +162,7 @@ public class pdfBean {
 
 
         cell = new PdfPCell(new Paragraph(formatter.format(total)));
-        cell.addElement(new Paragraph(formatter.format(total)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(cell);
 
 

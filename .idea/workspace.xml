@@ -2,24 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="972a7f1b-b7f6-4127-915e-a9cd6d0b6dea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1212145737933389521.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1212145737944414921.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1212145737944656621.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/asdas1457379617004asdsad.pdf" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/14145737220722314" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ssds1457375049427dsds.pdf" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/asasas1457372164736asa" afterPath="$PROJECT_DIR$/1212145737933126121.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ACCOUNTING_INVOICE_PDF_GENERATOR_jar/ACCOUNTING-INVOICE-PDF-GENERATOR.jar" afterPath="$PROJECT_DIR$/out/artifacts/ACCOUNTING_INVOICE_PDF_GENERATOR_jar/ACCOUNTING-INVOICE-PDF-GENERATOR.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$1.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$2.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$3.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$4.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$5.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$5.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/pdfBean.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/pdfBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.form" afterPath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.java" afterPath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/pdfBean.java" afterPath="$PROJECT_DIR$/src/com/ust/pdfBean.java" />
     </list>
     <ignored path="ACCOUNTING-INVOICE-PDF-GENERATOR.iws" />
@@ -59,8 +41,8 @@
       <file leaf-file-name="pdfBean.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ust/pdfBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.4082192">
-              <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.63013697">
+              <caret line="164" column="58" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -755,12 +737,12 @@
       <workItem from="1457269817612" duration="742000" />
       <workItem from="1457276146450" duration="1446000" />
       <workItem from="1457353215903" duration="140000" />
-      <workItem from="1457355710645" duration="23747000" />
+      <workItem from="1457355710645" duration="23938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41596000" />
+    <option name="totallyTimeSpent" value="41787000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1034,8 +1016,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ust/pdfBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4082192">
-          <caret line="72" column="45" selection-start-line="72" selection-start-column="45" selection-end-line="72" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.63013697">
+          <caret line="164" column="58" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
