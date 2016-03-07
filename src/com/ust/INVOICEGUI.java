@@ -15,6 +15,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.text.NumberFormat;import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import java.util.List;
  * Created by Jude on 3/6/2016.
  */
 public class INVOICEGUI extends JFrame {
+    private static NumberFormat formatter = new DecimalFormat("#.##");
     private JPanel InvoiceMainPanel;
     private JTextField customerTextField;
     private JTextField addressTextField;
@@ -197,6 +199,8 @@ public class INVOICEGUI extends JFrame {
 
                     pdfBean.CreatePDF(itemArray.toArray(new ItemBean[itemArray.size()]),recieptBean,amountdue,vat,total,
                             Double.parseDouble(vatTextField.getText()),logo);
+
+                        statusLabel.setText("PDF GENERATED");
                     }catch(Exception ae){
                         statusLabel.setText("ERROR IN GENERATING PDF");
                         ae.printStackTrace();
@@ -264,9 +268,9 @@ public class INVOICEGUI extends JFrame {
         total = vat + amountdue;
 
         System.out.println(amountdue + " " + total + " " + vat);
-        amountdueLabel.setText("" + amountdue);
-        vatLabel.setText("" + vat);
-        totalamountlabel.setText("" + total);
+        amountdueLabel.setText(formatter.format(amountdue));
+        vatLabel.setText(formatter.format(vat));
+        totalamountlabel.setText(formatter.format(total+vat));
 
 
     }

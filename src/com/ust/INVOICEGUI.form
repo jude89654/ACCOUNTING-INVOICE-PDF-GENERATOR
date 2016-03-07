@@ -208,7 +208,7 @@
               </grid>
             </constraints>
             <properties>
-              <font size="12" style="1"/>
+              <font/>
               <text value=""/>
             </properties>
           </component>
