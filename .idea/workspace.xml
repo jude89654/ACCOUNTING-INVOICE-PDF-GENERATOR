@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="972a7f1b-b7f6-4127-915e-a9cd6d0b6dea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/12121231457374124725121.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/14145737220722314" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/asasas1457372164736asa" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/artifacts/ACCOUNTING_INVOICE_PDF_GENERATOR_jar/ACCOUNTING-INVOICE-PDF-GENERATOR.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$5.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/ACCOUNTING_INVOICE_PDF_GENERATOR_jar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$1.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$2.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$3.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$4.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/INVOICEGUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/model/BeanFactory.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/model/BeanFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/pdfBean.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/pdfBean.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ACCOUNTING-INVOICE-PDF-GENERATOR.iml" afterPath="$PROJECT_DIR$/ACCOUNTING-INVOICE-PDF-GENERATOR.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.form" afterPath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.form" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.java" afterPath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/model/BeanFactory.java" afterPath="$PROJECT_DIR$/src/com/ust/model/BeanFactory.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/12121231457374124725121.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/sadasd145737226941613.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/wqwqw1457372675499qwqw.pdf" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/pdfBean.java" afterPath="$PROJECT_DIR$/src/com/ust/pdfBean.java" />
     </list>
     <ignored path="ACCOUNTING-INVOICE-PDF-GENERATOR.iws" />
@@ -59,8 +44,8 @@
       <file leaf-file-name="pdfBean.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ust/pdfBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6809045">
-              <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.4723618">
+              <caret line="86" column="6" selection-start-line="86" selection-start-column="6" selection-end-line="86" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -713,15 +698,15 @@
       <workItem from="1457269817612" duration="742000" />
       <workItem from="1457276146450" duration="1446000" />
       <workItem from="1457353215903" duration="140000" />
-      <workItem from="1457355710645" duration="18822000" />
+      <workItem from="1457355710645" duration="19994000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36671000" />
+    <option name="totallyTimeSpent" value="37843000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -976,8 +961,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ust/pdfBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6809045">
-          <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.4723618">
+          <caret line="86" column="6" selection-start-line="86" selection-start-column="6" selection-end-line="86" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

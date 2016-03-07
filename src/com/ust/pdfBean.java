@@ -41,8 +41,8 @@ public class pdfBean {
                 e.printStackTrace();
             }
 
-            Chunk chunk = new Chunk(person.getCompanyName().toUpperCase()+" SALES INVOICE");
-            document.add(chunk);
+            //Chunk chunk = new Chunk(person.getCompanyName().toUpperCase()+" SALES INVOICE");
+            //document.add(chunk);
 
             Paragraph paragraph = new Paragraph();
             paragraph.add(person.getCompanyName().toUpperCase()+" SALES INVOICE");
@@ -50,11 +50,27 @@ public class pdfBean {
             document.add(paragraph);
 
             paragraph = new Paragraph();
-            paragraph.add("RECIEPT NO"+person.getRecieptNumber());
+            paragraph.add("RECIEPT NO:"+person.getRecieptNumber());
             paragraph.setAlignment(Element.ALIGN_RIGHT);
             document.add(paragraph);
 
-            paragraph=new Paragraph();
+            paragraph = new Paragraph();
+            paragraph.add("CUSTOMER NAME:"+person.getCustomerName());
+            paragraph.setAlignment(Element.ALIGN_LEFT);
+            document.add(paragraph);
+
+            paragraph = new Paragraph();
+            paragraph.add("CUSTOMER ADDRESS:"+person.getCustomerName());
+            paragraph.setAlignment(Element.ALIGN_LEFT);
+            document.add(paragraph);
+
+            paragraph = new Paragraph();
+            paragraph.add("   ");
+            paragraph.setAlignment(Element.ALIGN_LEFT);
+            document.add(paragraph);
+
+
+
 
             PdfPTable table = createItemTable(itemBean,subAmount,vat,total,vatPercentage);
             document.add(table);
@@ -67,9 +83,8 @@ public class pdfBean {
         table.setWidthPercentage(new float[]{ 144, 72, 72,72 },rect);
         PdfPCell cell;
         //gawa ng HEADER
-        cell = new PdfPCell(new Phrase("ITEMS"));
-        cell.setColspan(4);
-        table.addCell(cell);
+
+      
         /*
         cell = new PdfPCell(new Phrase("Cell with rowspan 2"));
         cell.setRowspan(2);
@@ -80,6 +95,7 @@ public class pdfBean {
         table.addCell("QTY");
         table.addCell("TOTAL");
         for(ItemBean item:items) {
+
             table.addCell(item.getName());
             table.addCell(""+item.getPrice());
             table.addCell(""+item.getQuantity());
