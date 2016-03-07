@@ -1,6 +1,8 @@
 package com.ust;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -104,15 +106,18 @@ public class INVOICEGUI extends JFrame {
                 }
             }
         });
-        vatTextField.addPropertyChangeListener(new PropertyChangeListener() {
-            @Override
-            public void propertyChange(PropertyChangeEvent evt) {
-                try {
-                    totalize(myTable, TotalLabel, Double.parseDouble(vatTextField.getText().trim()));
-                }
-                catch(Exception e){
-                    vatStatus.setText("INVALID INPUT");
-                }
+
+        //for the vat
+        vatTextField.getDocument().addDocumentListener(new DocumentListener() {
+
+            public void changedUpdate(DocumentEvent e) {
+                totalize(myTable, TotalLabel,Double.parseDouble(vatTextField.getText().trim()) );
+            }
+            public void removeUpdate(DocumentEvent e) {
+                totalize(myTable, TotalLabel,Double.parseDouble(vatTextField.getText().trim()) );
+            }
+            public void insertUpdate(DocumentEvent e) {
+                totalize(myTable, TotalLabel,Double.parseDouble(vatTextField.getText().trim()) );
             }
         });
     }
