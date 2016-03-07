@@ -24,7 +24,7 @@ import java.util.List;
  * Created by Jude on 3/6/2016.
  */
 public class INVOICEGUI extends JFrame {
-    private static NumberFormat formatter = new DecimalFormat("#.##");
+    private static NumberFormat formatter = new DecimalFormat("#.00");
     private JPanel InvoiceMainPanel;
     private JTextField customerTextField;
     private JTextField addressTextField;

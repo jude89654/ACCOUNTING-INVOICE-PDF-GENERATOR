@@ -19,7 +19,7 @@ package com.ust;
     import com.ust.model.RecieptBean;
 
 public class pdfBean {
-    private static NumberFormat formatter = new DecimalFormat("#.##");
+    private static NumberFormat formatter = new DecimalFormat("#.00");
         public static void CreatePDF(ItemBean[] itemBean, RecieptBean person,
                                      double subAmount, double vat, double total, double vatPercentage
         , File logo)throws DocumentException,IOException{
@@ -119,7 +119,7 @@ public class pdfBean {
 
             table.addCell(cells);
 
-            cells = new PdfPCell(new Paragraph(formatter.format(item.getQuantity())));
+            cells = new PdfPCell(new Paragraph(item.getQuantity()));
             cells.setHorizontalAlignment(Element.ALIGN_CENTER);
 
 
