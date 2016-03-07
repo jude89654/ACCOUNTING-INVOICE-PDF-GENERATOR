@@ -2,17 +2,21 @@ package com.ust;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 
 /**
  * Created by Jude on 3/6/2016.
  */
-public class INVOICEGUI extends JFrame{
+public class INVOICEGUI extends JFrame {
     private JPanel InvoiceMainPanel;
     private JTextField billToTextField;
     private JTextField textField2;
@@ -31,15 +35,18 @@ public class INVOICEGUI extends JFrame{
     private JButton GeneratePDFTextField;
     private JLabel statusLabel;
     private JLabel TotalLabel;
-    List<Object[]> list=new ArrayList<Object[]>();
+    private JTextField vatTextField;
+    private JLabel vatStatus;
+    List<Object[]> list = new ArrayList<Object[]>();
 
     DefaultTableModel modelo;
-    public INVOICEGUI(){
+
+    public INVOICEGUI() {
         super();
         modelo = new DefaultTableModel();
-        modelo.addColumn("QTY");
         modelo.addColumn("ITEM NAME");
         modelo.addColumn("PRICE");
+        modelo.addColumn("QTY");
         modelo.addColumn("AMOUNT");
 
 
@@ -49,29 +56,35 @@ public class INVOICEGUI extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
-
         setVisible(true);
-
 
 
         //for the addButton
         ADDITEMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    if(itemNameTextField.getText().trim()!=""|
-                            quantityTextField.getText().trim()!=null|
-                            priceLabel.getText().trim()!=null
+                try {
+                    if (itemNameTextField.getText().trim() != "" &
+                            quantityTextField.getText().trim() != null &
+                            priceLabel.getText().trim() != null &
+                            vatTextField.getText().trim() != null
                             ) {
-                        String itemName=itemNameTextField.getText().trim();
-                        int quantity=Integer.parseInt(quantityTextField.getText().trim());
-                        double price=Double.parseDouble(priceTextField.getText().trim());
-                        double amount=quantity*price;
-                        modelo.addRow(new Object[]{quantity,itemName,price,amount});
-                        totalize(myTable,TotalLabel);
+
+
+                        String itemName = itemNameTextField.getText().trim();
+                        int quantity = Integer.parseInt(quantityTextField.getText().trim());
+                        double price = Double.parseDouble(priceTextField.getText().trim());
+                        double vatPercent = Double.parseDouble(vatTextField.getText().trim());
+
+
+                        double vat = price * (vatPercent / 100);
+                        double total = price*quantity;
+
+
+                        modelo.addRow(new Object[]{itemName, price, quantity, total});
+                        totalize(myTable, TotalLabel, vatPercent);
                     }
-                }
-                catch (Exception s){
+                } catch (Exception s) {
                     statusLabel.setText("INVALID INPUT");
                     s.printStackTrace();
                 }
@@ -82,18 +95,29 @@ public class INVOICEGUI extends JFrame{
         DELETEITEMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(myTable.getSelectedRow()>=0){
+                if (myTable.getSelectedRow() >= 0) {
                     modelo.removeRow(myTable.getSelectedRow());
-                    totalize(myTable,TotalLabel);
+                    totalize(myTable, TotalLabel,Double.parseDouble(vatTextField.getText().trim()) );
                     statusLabel.setText("ROW REMOVED");
-                }else{
+                } else {
                     statusLabel.setText("NO SELECTED ROWS FOR DELETION");
+                }
+            }
+        });
+        vatTextField.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                try {
+                    totalize(myTable, TotalLabel, Double.parseDouble(vatTextField.getText().trim()));
+                }
+                catch(Exception e){
+                    vatStatus.setText("INVALID INPUT");
                 }
             }
         });
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
 
         //For pampaganda lang, I like purple kasi e
         try {
@@ -104,7 +128,7 @@ public class INVOICEGUI extends JFrame{
                     break;
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -112,12 +136,15 @@ public class INVOICEGUI extends JFrame{
         new INVOICEGUI();
     }
 
-    public static void totalize(JTable table,JLabel label){
-        int total=0;
-        for(int x=0;x<table.getRowCount();x++){
-            total+=Double.parseDouble(""+table.getValueAt(x,3));
+    //update rows
+    public static void totalize(JTable table, JLabel label, double vatPercent) {
 
+        double subAmount = 0;
+        for (int x = 0; x < table.getRowCount(); x++) {
+            subAmount += Double.parseDouble("" + table.getValueAt(x, 3));
         }
-        label.setText(""+total);
+        double vat = subAmount*(vatPercent/100);
+        label.setText("SUBAMOUNT: "+subAmount+" VAT: "+ vat +" TOTAL: " + (vat+subAmount));
+
     }
 }
