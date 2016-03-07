@@ -180,16 +180,18 @@
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="    BILL TO"/>
+              <text value="    CUSTOMER NAME"/>
             </properties>
           </component>
-          <component id="4d097" class="javax.swing.JTextField" binding="billToTextField">
+          <component id="4d097" class="javax.swing.JTextField" binding="customerTextField">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
           <component id="debff" class="javax.swing.JLabel">
             <constraints>
@@ -199,7 +201,7 @@
               <text value="    ADDRESS"/>
             </properties>
           </component>
-          <component id="c31da" class="javax.swing.JTextField" binding="billToAddressTextField">
+          <component id="c31da" class="javax.swing.JTextField" binding="addressTextField">
             <constraints>
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -246,6 +248,12 @@
                 <constraints/>
                 <properties>
                   <columns value="30"/>
+                </properties>
+              </component>
+              <component id="e38fa" class="javax.swing.JButton" binding="chooseLogoButton">
+                <constraints/>
+                <properties>
+                  <text value="CHOOSE LOGO"/>
                 </properties>
               </component>
             </children>

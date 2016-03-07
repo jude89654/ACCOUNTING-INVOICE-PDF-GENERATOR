@@ -5,12 +5,22 @@ package com.ust.model;
  */
 public class BeanFactory {
 
-    public static ItemBean createBean(String name, int quantity, double price, double total){
+    public static ItemBean createBean(String name,  double price, int quantity, double total){
         ItemBean jaba = new ItemBean();
         jaba.setName(name);
         jaba.setPrice(price);
         jaba.setQuantity(quantity);
         jaba.setTotal(total);
         return jaba;
+    }
+    public static RecieptBean createBean(String companyName,String name, String address, String recieptNo){
+        RecieptBean recieptBean= new RecieptBean();
+        recieptBean.setCompanyName(companyName);
+        recieptBean.setRecieptNumber(recieptNo);
+        recieptBean.setCustomerName(name);
+        recieptBean.setCustomerAddress(address);
+
+        return recieptBean;
+
     }
 }
