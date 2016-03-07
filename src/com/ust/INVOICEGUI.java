@@ -3,6 +3,7 @@ package com.ust;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -39,6 +40,8 @@ public class INVOICEGUI extends JFrame {
     private JLabel TotalLabel;
     private JTextField vatTextField;
     private JLabel vatStatus;
+    private JTextField textField1;
+    private JTextField recieptNumberTextField;
     List<Object[]> list = new ArrayList<Object[]>();
 
     DefaultTableModel modelo;
@@ -53,6 +56,19 @@ public class INVOICEGUI extends JFrame {
 
 
         JTable myTable = new JTable(modelo);
+        //set quantity column width
+        myTable.getColumnModel().getColumn(2).setMaxWidth(60);
+
+        //pagcenter ng text sa table
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+        myTable.setDefaultRenderer(String.class, centerRenderer);
+
+        myTable.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+        myTable.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
+        myTable.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
+        myTable.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
+
         BoomPanes.setViewportView(myTable);
         setContentPane(InvoiceMainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -107,17 +123,39 @@ public class INVOICEGUI extends JFrame {
             }
         });
 
-        //for the vat
+        //for the vat, when you change the vat, you change lahat, joke yung total lang
         vatTextField.getDocument().addDocumentListener(new DocumentListener() {
 
             public void changedUpdate(DocumentEvent e) {
-                totalize(myTable, TotalLabel,Double.parseDouble(vatTextField.getText().trim()) );
+                try {
+                    totalize(myTable, TotalLabel, Double.parseDouble(vatTextField.getText().trim()));
+                    vatStatus.setText("VAT UPDATED");
+                }catch(Exception ex){
+                    vatStatus.setText("INVALID VAT VALUE!");
+                }
             }
             public void removeUpdate(DocumentEvent e) {
-                totalize(myTable, TotalLabel,Double.parseDouble(vatTextField.getText().trim()) );
+                try {
+                    totalize(myTable, TotalLabel, Double.parseDouble(vatTextField.getText().trim()));
+                    vatStatus.setText("VAT UPDATED");
+                }catch(Exception ex){
+                    vatStatus.setText("INVALID VAT VALUE!");
+                }
             }
             public void insertUpdate(DocumentEvent e) {
-                totalize(myTable, TotalLabel,Double.parseDouble(vatTextField.getText().trim()) );
+                try {
+                    totalize(myTable, TotalLabel, Double.parseDouble(vatTextField.getText().trim()));
+                    vatStatus.setText("VAT UPDATED");
+                }catch(Exception ex){
+                    vatStatus.setText("INVALID VAT VALUE!");
+                }
+            }
+        });
+
+        GeneratePDFTextField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
             }
         });
     }
@@ -153,3 +191,4 @@ public class INVOICEGUI extends JFrame {
 
     }
 }
+
