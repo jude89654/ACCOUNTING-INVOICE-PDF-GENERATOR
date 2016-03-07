@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="972a7f1b-b7f6-4127-915e-a9cd6d0b6dea" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/ACCOUNTING_INVOICE_PDF_GENERATOR_jar/ACCOUNTING-INVOICE-PDF-GENERATOR.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/pdfBean.class" afterPath="$PROJECT_DIR$/out/production/ACCOUNTING-INVOICE-PDF-GENERATOR/com/ust/pdfBean.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/ACCOUNTING_INVOICE_PDF_GENERATOR_jar/ACCOUNTING-INVOICE-PDF-GENERATOR.jar" afterPath="$PROJECT_DIR$/out/artifacts/ACCOUNTING_INVOICE_PDF_GENERATOR_jar/ACCOUNTING-INVOICE-PDF-GENERATOR.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.java" afterPath="$PROJECT_DIR$/src/com/ust/INVOICEGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/ust/pdfBean.java" afterPath="$PROJECT_DIR$/src/com/ust/pdfBean.java" />
     </list>
     <ignored path="ACCOUNTING-INVOICE-PDF-GENERATOR.iws" />
@@ -28,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="INVOICEGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="INVOICEGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/ust/INVOICEGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.67535543">
+              <caret line="272" column="59" selection-start-line="272" selection-start-column="59" selection-end-line="272" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pdfBean.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pdfBean.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/ust/pdfBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35545024">
-              <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -122,8 +122,8 @@
         <option value="$PROJECT_DIR$/src/com/ust/model/RecieptBean.java" />
         <option value="$PROJECT_DIR$/src/com/ust/model/BeanFactory.java" />
         <option value="$PROJECT_DIR$/src/com/ust/INVOICEGUI.form" />
-        <option value="$PROJECT_DIR$/src/com/ust/INVOICEGUI.java" />
         <option value="$PROJECT_DIR$/src/com/ust/pdfBean.java" />
+        <option value="$PROJECT_DIR$/src/com/ust/INVOICEGUI.java" />
       </list>
     </option>
   </component>
@@ -707,16 +707,16 @@
       <workItem from="1457276146450" duration="1446000" />
       <workItem from="1457353215903" duration="140000" />
       <workItem from="1457355710645" duration="26144000" />
-      <workItem from="1457382801483" duration="645000" />
+      <workItem from="1457382801483" duration="1335000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44638000" />
+    <option name="totallyTimeSpent" value="45328000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -727,7 +727,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26350245" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29198185" sideWeight="0.50769234" order="0" side_tool="true" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29198185" sideWeight="0.50769234" order="0" side_tool="true" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962063" sideWeight="0.4923077" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -921,16 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/ust/INVOICEGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ust/INVOICEGUI.form">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -944,8 +934,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/ust/pdfBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35545024">
-          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="54" selection-start-line="43" selection-start-column="54" selection-end-line="43" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/ust/INVOICEGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67535543">
+          <caret line="272" column="59" selection-start-line="272" selection-start-column="59" selection-end-line="272" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

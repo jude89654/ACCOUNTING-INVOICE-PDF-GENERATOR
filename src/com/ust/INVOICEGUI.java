@@ -270,7 +270,7 @@ public class INVOICEGUI extends JFrame {
         System.out.println(amountdue + " " + total + " " + vat);
         amountdueLabel.setText(formatter.format(amountdue));
         vatLabel.setText(formatter.format(vat));
-        totalamountlabel.setText(formatter.format(total+vat));
+        totalamountlabel.setText(formatter.format(amountdue+vat));
 
 
     }

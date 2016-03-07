@@ -41,7 +41,7 @@ public class pdfBean {
                     logoAndCompanyTable = new PdfPTable(1);}
 
                 Image image;
-            Font font = FontFactory.getFont("Arial",30sdasd);
+            Font font = FontFactory.getFont("Arial",30);
             Chunk chunk = new Chunk();
             Paragraph para = new Paragraph();
             para.setFont(font);
