@@ -7,6 +7,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -22,10 +23,7 @@ import java.util.Vector;
 public class INVOICEGUI extends JFrame {
     private JPanel InvoiceMainPanel;
     private JTextField billToTextField;
-    private JTextField textField2;
     private JTextField billToAddressTextField;
-    private JTextField shipToAddressTextField;
-    private JLabel shipToTextField;
     private JTextField itemNameTextField;
     private JTextField quantityTextField;
     private JTextField priceTextField;
@@ -40,14 +38,18 @@ public class INVOICEGUI extends JFrame {
     private JLabel TotalLabel;
     private JTextField vatTextField;
     private JLabel vatStatus;
-    private JTextField textField1;
+    private JTextField companyNametextField;
     private JTextField recieptNumberTextField;
+    private JLabel totalAmountLabel;
+    private JLabel vatAmountLabel;
+    private JLabel amountLabel;
     List<Object[]> list = new ArrayList<Object[]>();
 
     DefaultTableModel modelo;
 
     public INVOICEGUI() {
-        super();
+        super("SALES INVOICE");
+        super.setMaximumSize(new Dimension(640,480));
         modelo = new DefaultTableModel();
         modelo.addColumn("ITEM NAME");
         modelo.addColumn("PRICE");
@@ -58,18 +60,23 @@ public class INVOICEGUI extends JFrame {
         JTable myTable = new JTable(modelo);
         //set quantity column width
         myTable.getColumnModel().getColumn(2).setMaxWidth(60);
+        myTable.getColumnModel().getColumn(3).setMinWidth(100);
+        myTable.getColumnModel().getColumn(3).setMaxWidth(200);
 
-        //pagcenter ng text sa table
+        //paggawa ng renderer ng text para sa table
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
         centerRenderer.setHorizontalAlignment( JLabel.CENTER );
         myTable.setDefaultRenderer(String.class, centerRenderer);
-
+        //paglagay ng mga renderer para sa table
         myTable.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
         myTable.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
         myTable.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
         myTable.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
 
+        //fixed table size
+        myTable.setPreferredScrollableViewportSize(new java.awt.Dimension(250,200));
         BoomPanes.setViewportView(myTable);
+
         setContentPane(InvoiceMainPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
@@ -95,12 +102,12 @@ public class INVOICEGUI extends JFrame {
                         double vatPercent = Double.parseDouble(vatTextField.getText().trim());
 
 
-                        double vat = price * (vatPercent / 100);
+                        //double vat = price * (vatPercent / 100);
                         double total = price*quantity;
 
 
                         modelo.addRow(new Object[]{itemName, price, quantity, total});
-                        totalize(myTable, TotalLabel, vatPercent);
+                        totalize(myTable,amountLabel,vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
                     }
                 } catch (Exception s) {
                     statusLabel.setText("INVALID INPUT");
@@ -115,10 +122,10 @@ public class INVOICEGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (myTable.getSelectedRow() >= 0) {
                     modelo.removeRow(myTable.getSelectedRow());
-                    totalize(myTable, TotalLabel,Double.parseDouble(vatTextField.getText().trim()) );
+                    totalize(myTable,amountLabel,vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
                     statusLabel.setText("ROW REMOVED");
                 } else {
-                    statusLabel.setText("NO SELECTED ROWS FOR DELETION");
+                    statusLabel.setText("NO ROWS TO DELETE");
                 }
             }
         });
@@ -128,7 +135,7 @@ public class INVOICEGUI extends JFrame {
 
             public void changedUpdate(DocumentEvent e) {
                 try {
-                    totalize(myTable, TotalLabel, Double.parseDouble(vatTextField.getText().trim()));
+                    totalize(myTable,amountLabel,vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
                     vatStatus.setText("VAT UPDATED");
                 }catch(Exception ex){
                     vatStatus.setText("INVALID VAT VALUE!");
@@ -136,7 +143,7 @@ public class INVOICEGUI extends JFrame {
             }
             public void removeUpdate(DocumentEvent e) {
                 try {
-                    totalize(myTable, TotalLabel, Double.parseDouble(vatTextField.getText().trim()));
+                    totalize(myTable,amountLabel,vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
                     vatStatus.setText("VAT UPDATED");
                 }catch(Exception ex){
                     vatStatus.setText("INVALID VAT VALUE!");
@@ -144,7 +151,7 @@ public class INVOICEGUI extends JFrame {
             }
             public void insertUpdate(DocumentEvent e) {
                 try {
-                    totalize(myTable, TotalLabel, Double.parseDouble(vatTextField.getText().trim()));
+                    totalize(myTable,amountLabel,vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
                     vatStatus.setText("VAT UPDATED");
                 }catch(Exception ex){
                     vatStatus.setText("INVALID VAT VALUE!");
@@ -180,14 +187,25 @@ public class INVOICEGUI extends JFrame {
     }
 
     //update rows
-    public static void totalize(JTable table, JLabel label, double vatPercent) {
+    public static void totalize(JTable table,  JLabel amountdueLabel,JLabel vatLabel, JLabel totalamountlabel, double vatPercent) {
 
-        double subAmount = 0;
+        double amountdue = 0;
+        double total=0;
+        double vat=0;
         for (int x = 0; x < table.getRowCount(); x++) {
-            subAmount += Double.parseDouble("" + table.getValueAt(x, 3));
+            amountdue += Double.parseDouble("" + table.getValueAt(x, 3));
         }
-        double vat = subAmount*(vatPercent/100);
-        label.setText("SUBAMOUNT: "+subAmount+" VAT: "+ vat +" TOTAL: " + (vat+subAmount));
+
+
+
+        vat = amountdue*(vatPercent/100);
+        total = vat+amountdue;
+
+        System.out.println(amountdue+" "+ total+" "+vat);
+        amountdueLabel.setText(""+amountdue);
+        vatLabel.setText(""+vat);
+        totalamountlabel.setText(""+total);
+
 
     }
 }

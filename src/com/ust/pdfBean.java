@@ -12,10 +12,10 @@ package com.ust;
     import com.itextpdf.text.pdf.PdfPCell;
     import com.itextpdf.text.pdf.PdfPTable;
     import com.ust.model.ItemBean;
-    import com.ust.model.CustomerBean;
+    import com.ust.model.RecieptBean;
 
 public class pdfBean {
-        public void CreatePDF(ItemBean[] itemBean, CustomerBean person, double vat, double total)throws DocumentException,IOException{
+        public void CreatePDF(ItemBean[] itemBean, RecieptBean person, double vat, double total)throws DocumentException,IOException{
              String directory
                     ="COMPANYRECIEPT"+ new java.util.Date().getTime()+person.getCustomerName();
 
