@@ -32,13 +32,30 @@ public class pdfBean {
             // step 3
             document.open();
 
-            Image image;
+
+            PdfPTable logoAndCompanyTable;
+            if(logo!=null){
+               logoAndCompanyTable = new PdfPTable(2);}
+                else
+                {
+                    logoAndCompanyTable = new PdfPTable(1);}
+
+                Image image;
+            Font font = FontFactory.getFont("Arial",30sdasd);
+            Chunk chunk = new Chunk();
+            Paragraph para = new Paragraph();
+            para.setFont(font);
+            para.setAlignment(Element.ALIGN_CENTER);
+
+
             try {
                 if(logo!=null) {
+                    PdfPCell sel= new PdfPCell();
+
                     image = Image.getInstance(logo.getAbsolutePath());
                     image.scaleToFit(100, 100);
-                    image.setAlignment(Image.MIDDLE);
-                    document.add(image);
+                    para.add(new Chunk(image,0,0));
+
                 }
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -49,18 +66,26 @@ public class pdfBean {
             //Chunk chunk = new Chunk(person.getCompanyName().toUpperCase()+" SALES INVOICE");
             //document.add(chunk);
 
-            Font font = FontFactory.getFont("Arial",25);
 
+
+            Phrase x = new Phrase(person.getCompanyName().toUpperCase());
+            x.setFont(font);
+            para.add(x);
+
+            document.add(para);
+            //logoAndCompanyTable.addCell(x);
+
+
+            document.add(logoAndCompanyTable);
             Paragraph paragraph = new Paragraph();
-            paragraph.setFont(font);
-            paragraph.add(person.getCompanyName().toUpperCase()+" SALES INVOICE");
+            paragraph = new Paragraph();
+            paragraph.add("SALES INVOICE");
             paragraph.setAlignment(Element.ALIGN_CENTER);
-
-
             document.add(paragraph);
 
+
             paragraph = new Paragraph();
-            paragraph.add("RECIEPT NO.: "+person.getRecieptNumber());
+            paragraph.add("RECEIPT NO.: "+person.getRecieptNumber());
             paragraph.setAlignment(Element.ALIGN_RIGHT);
             document.add(paragraph);
 
@@ -119,7 +144,7 @@ public class pdfBean {
 
             table.addCell(cells);
 
-            cells = new PdfPCell(new Paragraph(item.getQuantity()));
+            cells = new PdfPCell(new Paragraph(""+item.getQuantity()));
             cells.setHorizontalAlignment(Element.ALIGN_CENTER);
 
 
