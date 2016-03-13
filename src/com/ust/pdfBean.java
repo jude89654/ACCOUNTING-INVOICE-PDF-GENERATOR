@@ -24,7 +24,7 @@ public class pdfBean {
                                      double subAmount, double vat, double total, double vatPercentage
         , File logo)throws DocumentException,IOException{
              String directory
-                    =person.getCompanyName()+ new java.util.Date().getTime()+person.getCustomerName()+".pdf";
+                    =person.getCompanyName()+ new java.util.Date().getDate()+person.getCustomerName()+".pdf";
             //init the document
             Document document = new Document();
             //open the instance of document
@@ -95,7 +95,7 @@ public class pdfBean {
             document.add(paragraph);
 
             paragraph = new Paragraph();
-            paragraph.add("CUSTOMER ADDRESS: "+person.getCustomerName());
+            paragraph.add("CUSTOMER ADDRESS: "+person.getCustomerAddress());
             paragraph.setAlignment(Element.ALIGN_LEFT);
             document.add(paragraph);
 

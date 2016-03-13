@@ -48,6 +48,8 @@ public class INVOICEGUI extends JFrame {
     private JLabel vatAmountLabel;
     private JLabel amountLabel;
     private JButton chooseLogoButton;
+    private JLabel logoPathLabel;
+    private JButton removeLogoButton;
     List<Object[]> list = new ArrayList<Object[]>();
     File logo=null;
 
@@ -71,7 +73,7 @@ public class INVOICEGUI extends JFrame {
 
         //paggawa ng renderer ng text para sa table
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);//gawing center
         myTable.setDefaultRenderer(String.class, centerRenderer);
         //paglagay ng mga renderer para sa table
         myTable.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -114,6 +116,13 @@ public class INVOICEGUI extends JFrame {
 
                         modelo.addRow(new Object[]{itemName, price, quantity, total});
                         totalize(myTable, amountLabel, vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
+
+                        quantityTextField.setText("");
+                        itemNameTextField.setText("");
+                        priceTextField.setText("");
+
+
+                        statusLabel.setText("PRODUCT ADDED");
                     }
                 } catch (Exception s) {
                     statusLabel.setText("INVALID INPUT");
@@ -225,12 +234,22 @@ public class INVOICEGUI extends JFrame {
                         logo = chooser.getSelectedFile();
                         //This is where a real application would open the file.
                        // log.append("Opening: " + file.getName() + "." + newline);
+                        logoPathLabel.setText("LOGOPATH:"+logo.getAbsolutePath());
                     } else {
                         statusLabel.setText("CHOOSE LOGO CANCELLED");
+                        logoPathLabel.setText("LOGO PATH:");
                     }
                 }
 
 
+        });
+        removeLogoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                logo=null;
+                logoPathLabel.setText("LOGO PATH:");
+                statusLabel.setText("REMOVED LOGO");
+            }
         });
     }
 

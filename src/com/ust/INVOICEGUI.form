@@ -231,9 +231,25 @@
               </component>
             </children>
           </grid>
+          <component id="c515e" class="javax.swing.JTextField" binding="recieptNumberTextField">
+            <constraints>
+              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="28d4c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="RECEIPT NO."/>
+            </properties>
+          </component>
           <grid id="95ef5" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties/>
             <border type="none"/>
@@ -256,22 +272,20 @@
                   <text value="CHOOSE LOGO"/>
                 </properties>
               </component>
+              <component id="dde7b" class="javax.swing.JButton" binding="removeLogoButton">
+                <constraints/>
+                <properties>
+                  <text value="REMOVE LOGO"/>
+                </properties>
+              </component>
             </children>
           </grid>
-          <component id="c515e" class="javax.swing.JTextField" binding="recieptNumberTextField">
+          <component id="27278" class="javax.swing.JLabel" binding="logoPathLabel">
             <constraints>
-              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="4" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="-1"/>
-              </grid>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="28d4c" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="RECEIPT NO."/>
+              <text value="LOGO PATH:"/>
             </properties>
           </component>
         </children>
