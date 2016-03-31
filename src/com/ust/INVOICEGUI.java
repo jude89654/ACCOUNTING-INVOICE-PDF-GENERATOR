@@ -109,6 +109,7 @@ public class INVOICEGUI extends JFrame {
                         double price = Double.parseDouble(priceTextField.getText().trim());
                         double vatPercent = Double.parseDouble(vatTextField.getText().trim());
 
+                        if (quantity<=0|price<=0|vatPercent<0)throw new Exception();
 
                         //double vat = price * (vatPercent / 100);
                         double total = price * quantity;
@@ -273,7 +274,7 @@ public class INVOICEGUI extends JFrame {
     }
 
     //update rows
-    public static void totalize(JTable table, JLabel amountdueLabel, JLabel vatLabel, JLabel totalamountlabel, double vatPercent) {
+    public static void totalize(JTable table, JLabel amountdueLabel, JLabel vatLabel, JLabel totalamountlabel, double vatPercent) throws Exception {
 
         double amountdue = 0;
         double total = 0;
@@ -283,6 +284,7 @@ public class INVOICEGUI extends JFrame {
         }
 
 
+        if(vatPercent<0)throw new Exception();
         vat = amountdue * (vatPercent / 100);
         total = vat + amountdue;
 
