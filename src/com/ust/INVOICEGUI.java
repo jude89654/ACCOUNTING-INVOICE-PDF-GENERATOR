@@ -136,12 +136,16 @@ public class INVOICEGUI extends JFrame {
         DELETEITEMButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try{
                 if (myTable.getSelectedRow() >= 0) {
                     modelo.removeRow(myTable.getSelectedRow());
                     totalize(myTable, amountLabel, vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
                     statusLabel.setText("ROW REMOVED");
                 } else {
                     statusLabel.setText("NO ROWS TO DELETE");
+                }
+            }catch(Exception ex){
+                    vatStatus.setText("INVALID VAT VALUE!");
                 }
             }
         });
