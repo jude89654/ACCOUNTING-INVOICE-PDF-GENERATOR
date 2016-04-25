@@ -24,7 +24,7 @@ public class pdfBean {
                                      double subAmount, double vat, double total, double vatPercentage
         , File logo)throws DocumentException,IOException{
              String directory
-                    =person.getCompanyName()+ new java.util.Date().getDate()+person.getCustomerName()+".pdf";
+                    =person.getCompanyName()+person.getCustomerName()+".pdf";
             //init the document
             Document document = new Document();
             //open the instance of document
@@ -32,6 +32,9 @@ public class pdfBean {
             // step 3
             document.open();
 
+            Paragraph whiteSpace= new Paragraph();
+            whiteSpace.add("\n");
+            document.add(whiteSpace);
 
             PdfPTable logoAndCompanyTable;
             if(logo!=null){
