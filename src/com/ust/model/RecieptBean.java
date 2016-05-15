@@ -5,6 +5,11 @@ package com.ust.model;
  */
 public class RecieptBean {
 
+
+    public String customerName;
+    public String customerAddress;
+    public String CompanyName;
+    public String recieptNumber;
     public String getCompanyName() {
         return CompanyName;
     }
@@ -29,8 +34,7 @@ public class RecieptBean {
         this.customerAddress = customerAddress;
     }
 
-    public String CompanyName;
-    public String recieptNumber;
+
     public String getCustomerName() {
         return customerName;
     }
@@ -39,6 +43,5 @@ public class RecieptBean {
         this.customerName = customerName;
     }
 
-    public String customerName;
-    public String customerAddress;
+
 }
