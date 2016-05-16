@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="DateChooser1">
+  <library name="DateChooser">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/itextpdf-5.5.8.jar!/" />
       <root url="jar://$PROJECT_DIR$/jcalendar-1.4.jar!/" />

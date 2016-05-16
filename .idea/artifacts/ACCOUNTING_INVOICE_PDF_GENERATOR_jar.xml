@@ -4,8 +4,10 @@
     <root id="archive" name="ACCOUNTING-INVOICE-PDF-GENERATOR.jar">
       <element id="module-output" name="ACCOUNTING-INVOICE-PDF-GENERATOR" />
       <element id="extracted-dir" path="$PROJECT_DIR$/itextpdf-5.5.8.jar" path-in-jar="/" />
-      <element id="library" level="project" name="itextpdf-5.5.8" />
-      <element id="library" level="project" name="DateChooser1" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jcalendar-1.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jgoodies-common-1.2.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/jgoodies-looks-2.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/junit-4.6.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

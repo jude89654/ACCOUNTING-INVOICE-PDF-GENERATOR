@@ -5,6 +5,7 @@ package com.ust.model;
  */
 public class BeanFactory {
 
+    //mGa bea
     public static ItemBean createBean(String name,  double price, int quantity, double total){
         ItemBean jaba = new ItemBean();
         jaba.setName(name);

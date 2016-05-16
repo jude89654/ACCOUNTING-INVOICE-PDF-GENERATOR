@@ -8,6 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="itextpdf-5.5.8" level="project" />
-    <orderEntry type="library" name="DateChooser1" level="project" />
+    <orderEntry type="library" exported="" name="DateChooser" level="project" />
   </component>
 </module>
