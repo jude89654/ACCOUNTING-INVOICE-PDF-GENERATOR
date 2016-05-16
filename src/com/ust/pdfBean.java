@@ -146,26 +146,26 @@ public class pdfBean {
         for (ItemBean item : items) {
 
 
-            PdfPCell cells = new PdfPCell(new Paragraph(item.getName()));
+            PdfPCell cells = new PdfPCell(new Phrase(item.getName()));
             cells.setHorizontalAlignment(Element.ALIGN_CENTER);
 
 
             table.addCell(cells);
 
-            cells = new PdfPCell(new Paragraph(formatter.format(item.getPrice())));
+            cells = new PdfPCell(new Phrase(formatter.format(item.getPrice())));
             cells.setHorizontalAlignment(Element.ALIGN_CENTER);
 
 
             table.addCell(cells);
 
-            cells = new PdfPCell(new Paragraph("" + item.getQuantity()));
+            cells = new PdfPCell(new Phrase("" + item.getQuantity()));
             cells.setHorizontalAlignment(Element.ALIGN_CENTER);
 
 
             table.addCell(cells);
 
 
-            cells = new PdfPCell(new Paragraph(formatter.format(item.getTotal())));
+            cells = new PdfPCell(new Phrase(formatter.format(item.getTotal())));
             cells.setHorizontalAlignment(Element.ALIGN_CENTER);
 
             table.addCell(cells);
@@ -173,11 +173,11 @@ public class pdfBean {
         }
         cell = new PdfPCell();
         table.addCell(cell);
-        cell = new PdfPCell(new Paragraph("AMOUNT DUE"));
+        cell = new PdfPCell(new Phrase("AMOUNT DUE"));
         cell.setColspan(2);
         table.addCell(cell);
 
-        cell = new PdfPCell(new Paragraph(formatter.format(subAmount)));
+        cell = new PdfPCell(new Phrase(formatter.format(subAmount)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
         table.addCell(cell);
@@ -186,11 +186,11 @@ public class pdfBean {
         cell = new PdfPCell();
         //cell.setColspan(1);
         table.addCell(cell);
-        cell = new PdfPCell(new Paragraph("VAT(" + vatPercentage + "%)"));
+        cell = new PdfPCell(new Phrase("VAT(" + vatPercentage + "%)"));
         cell.setColspan(2);
         table.addCell(cell);
 
-        cell = new PdfPCell(new Paragraph(formatter.format(vat)));
+        cell = new PdfPCell(new Phrase(formatter.format(vat)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
 
 
@@ -199,12 +199,13 @@ public class pdfBean {
         cell = new PdfPCell();
         //cell.setColspan(2);
         table.addCell(cell);
-        cell = new PdfPCell(new Paragraph("TOTAL AMOUNT"));
+
+        cell = new PdfPCell(new Phrase("TOTAL AMOUNT"));
         cell.setColspan(2);
         table.addCell(cell);
 
 
-        cell = new PdfPCell(new Paragraph(formatter.format(total)));
+        cell = new PdfPCell(new Phrase(formatter.format(total)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(cell);
 
