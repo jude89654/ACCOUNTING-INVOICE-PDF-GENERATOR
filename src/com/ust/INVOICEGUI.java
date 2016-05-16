@@ -63,6 +63,7 @@ public class INVOICEGUI extends JFrame {
     private JPanel DateSelectionPanel;
     private JDateChooser DateChooser;
     private JButton CURRENTDATEButton;
+    private JButton ClearButton;
     List<Object[]> list = new ArrayList<Object[]>();
     File logo = null;
 
@@ -291,6 +292,32 @@ public class INVOICEGUI extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 DateChooser.setDate(new GregorianCalendar().getTime());
                 System.out.println(DateChooser.getDate());
+            }
+        });
+        ClearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                customerTextField.setText("");
+                addressTextField.setText("");
+                vatTextField.setText("");
+                itemNameTextField.setText("");
+                DateChooser.setDate(null);
+                companyNametextField.setText("");
+                recieptNumberTextField.setText("");
+                addressTextField.setText("");
+                quantityTextField.setText("");
+                priceTextField.setText("");
+                vatTextField.setText("");
+                logoPathLabel.setText("LOGO PATH");
+                logo=null;
+                amountLabel.setText("0.00");
+                totalAmountLabel.setText("0.00");
+                vatAmountLabel.setText("0.00");
+                if (modelo.getRowCount() > 0) {
+                    for (int i = modelo.getRowCount() - 1; i > -1; i--) {
+                        modelo.removeRow(i);
+                    }
+                }
             }
         });
     }

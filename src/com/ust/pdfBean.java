@@ -129,7 +129,7 @@ public class pdfBean {
     public static PdfPTable createItemTable(ItemBean[] items, double subAmount, double vat, double total, double vatPercentage) throws DocumentException {
         PdfPTable table = new PdfPTable(4);
         Rectangle rect = new Rectangle(600, 600);
-        table.setWidthPercentage(new float[]{144, 72, 72, 72}, rect);
+        table.setWidthPercentage(new float[]{200, 72, 72, 100}, rect);
         PdfPCell cell;
         //gawa ng HEADER
 
@@ -172,9 +172,10 @@ public class pdfBean {
 
         }
         cell = new PdfPCell();
+        table.addCell(cell);
+        cell = new PdfPCell(new Paragraph("AMOUNT DUE"));
         cell.setColspan(2);
         table.addCell(cell);
-        table.addCell("AMOUNT DUE");
 
         cell = new PdfPCell(new Paragraph(formatter.format(subAmount)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -183,9 +184,11 @@ public class pdfBean {
 
 
         cell = new PdfPCell();
+        //cell.setColspan(1);
+        table.addCell(cell);
+        cell = new PdfPCell(new Paragraph("VAT(" + vatPercentage + "%)"));
         cell.setColspan(2);
         table.addCell(cell);
-        table.addCell("VAT(" + vatPercentage + "%)");
 
         cell = new PdfPCell(new Paragraph(formatter.format(vat)));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -194,9 +197,11 @@ public class pdfBean {
         table.addCell(cell);
 
         cell = new PdfPCell();
+        //cell.setColspan(2);
+        table.addCell(cell);
+        cell = new PdfPCell(new Paragraph("TOTAL AMOUNT"));
         cell.setColspan(2);
         table.addCell(cell);
-        table.addCell("TOTAL AMOUNT");
 
 
         cell = new PdfPCell(new Paragraph(formatter.format(total)));
