@@ -129,7 +129,7 @@ public class pdfBean {
     public static PdfPTable createItemTable(ItemBean[] items, double subAmount, double vat, double total, double vatPercentage) throws DocumentException {
         PdfPTable table = new PdfPTable(4);
         Rectangle rect = new Rectangle(600, 600);
-        table.setWidthPercentage(new float[]{200, 72, 72, 100}, rect);
+        table.setWidthPercentage(new float[]{200, 100, 72, 150}, rect);
         PdfPCell cell;
         //gawa ng HEADER
 
