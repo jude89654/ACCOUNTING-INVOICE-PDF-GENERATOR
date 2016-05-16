@@ -30,7 +30,7 @@ public class pdfBean {
                                  double subAmount, double vat, double total, double vatPercentage,
                                  File logo, Date date) throws DocumentException, IOException {
         String directory
-                = person.getCompanyName() + person.getCustomerName() + ".pdf";
+                = person.getCompanyName() + person.getCustomerName() +new Date().getTime()+ ".pdf";
         //init the document
         Document document = new Document();
         //open the instance of document
@@ -39,7 +39,7 @@ public class pdfBean {
         document.open();
 
         Paragraph whiteSpace = new Paragraph();
-        whiteSpace.add("\n");
+        whiteSpace.add("\n\n\n");
         document.add(whiteSpace);
 
         PdfPTable logoAndCompanyTable;
