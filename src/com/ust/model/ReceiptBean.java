@@ -3,7 +3,7 @@ package com.ust.model;
 /**
  * Created by Jude on 3/7/2016.
  */
-public class RecieptBean {
+public class ReceiptBean {
 
 
     public String customerName;

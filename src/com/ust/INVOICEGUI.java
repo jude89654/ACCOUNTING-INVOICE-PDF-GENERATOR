@@ -3,7 +3,7 @@ package com.ust;
 import com.toedter.calendar.JDateChooser;
 import com.ust.model.BeanFactory;
 import com.ust.model.ItemBean;
-import com.ust.model.RecieptBean;
+import com.ust.model.ReceiptBean;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -11,15 +11,15 @@ import javax.swing.event.DocumentListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.text.NumberFormat;
 import java.text.DecimalFormat;
-import java.util.*;
-import java.util.List;
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.GregorianCalendar;
+import java.util.Objects;
 
 
 /**
@@ -60,14 +60,12 @@ public class INVOICEGUI extends JFrame {
     private JButton removeLogoButton;
 
 
-    private JPanel DateSelectionPanel;
     private JDateChooser DateChooser;
     private JButton CURRENTDATEButton;
     private JButton ClearButton;
-    List<Object[]> list = new ArrayList<Object[]>();
-    File logo = null;
+    private File logo = null;
 
-    DefaultTableModel modelo;
+    private DefaultTableModel modelo;
 
     public INVOICEGUI() {
         super("SALES INVOICE");
@@ -150,22 +148,19 @@ public class INVOICEGUI extends JFrame {
         });
 
         //for the DeleteButton
-        DELETEITEMButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
+        DELETEITEMButton.addActionListener(e -> {
+            try {
 
-                    //checheck kung may pinili na rows
-                    if (myTable.getSelectedRow() >= 0) {
-                        modelo.removeRow(myTable.getSelectedRow());
-                        totalize(myTable, amountLabel, vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
-                        statusLabel.setText("ROW REMOVED");
-                    } else {
-                        statusLabel.setText("NO ROWS TO DELETE");
-                    }
-                } catch (Exception ex) {
-                    vatStatus.setText("INVALID VAT VALUE!");
+                //checheck kung may pinili na rows
+                if (myTable.getSelectedRow() >= 0) {
+                    modelo.removeRow(myTable.getSelectedRow());
+                    totalize(myTable, amountLabel, vatAmountLabel, totalAmountLabel, Double.parseDouble(vatTextField.getText().trim()));
+                    statusLabel.setText("ROW REMOVED");
+                } else {
+                    statusLabel.setText("NO ROWS TO DELETE");
                 }
+            } catch (Exception ex) {
+                vatStatus.setText("INVALID VAT VALUE!");
             }
         });
 
@@ -205,20 +200,20 @@ public class INVOICEGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //check kung empty
-                if (DateChooser.getDate()!=null
-                        &companyNametextField.getText().trim() != ""
-                        & customerTextField.getText().trim() != "" &
-                        addressTextField.getText().trim() != "" &
-                        recieptNumberTextField.getText().trim() != "") {
+                if (DateChooser.getDate() != null
+                        & !Objects.equals(companyNametextField.getText().trim(), "")
+                        & !Objects.equals(customerTextField.getText().trim(), "")
+                        & !Objects.equals(addressTextField.getText().trim(), "")
+                        & !Objects.equals(recieptNumberTextField.getText().trim(), "")) {
                     try {
                         //dito ilalagay ang mga laman ng  table
-                        ArrayList<ItemBean> itemArray = new ArrayList<ItemBean>();
+                        ArrayList<ItemBean> itemArray = new ArrayList<>();
 
                         //ito yung mga personal info
-                        RecieptBean recieptBean = BeanFactory.createBean(companyNametextField.getText()
-                                , customerTextField.getText(),
-                                addressTextField.getText(),
-                                recieptNumberTextField.getText());
+                        ReceiptBean receiptBean = BeanFactory.createBean(companyNametextField.getText()
+                                , customerTextField.getText()
+                                , addressTextField.getText()
+                                , recieptNumberTextField.getText());
 
                         double amountdue = 0;
                         double total = 0;
@@ -236,15 +231,15 @@ public class INVOICEGUI extends JFrame {
                         total = vat + amountdue;
 
                         //paggawa ng pdf method.
-                        pdfBean.CreatePDF(itemArray.toArray(new ItemBean[itemArray.size()]), recieptBean, amountdue, vat, total,
-                                Double.parseDouble(vatTextField.getText()), logo,DateChooser.getDate());
+                        pdfBean.CreatePDF(itemArray.toArray(new ItemBean[itemArray.size()]), receiptBean, amountdue, vat, total,
+                                Double.parseDouble(vatTextField.getText()), logo, DateChooser.getDate());
 
                         statusLabel.setText("PDF GENERATED");
                     } catch (Exception ae) {
                         statusLabel.setText("ERROR IN GENERATING PDF");
                         ae.printStackTrace();
                     }
-                }else{
+                } else {
                     statusLabel.setText("SOME FIELDS ARE MISSING INPUT");
                 }
             }
@@ -276,55 +271,46 @@ public class INVOICEGUI extends JFrame {
 
 
         });
-        removeLogoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                logo = null;
-                logoPathLabel.setText("LOGO PATH:");
-                statusLabel.setText("REMOVED LOGO");
-            }
+        removeLogoButton.addActionListener(e -> {
+            logo = null;
+            logoPathLabel.setText("LOGO PATH:");
+            statusLabel.setText("REMOVED LOGO");
         });
 
 
         //para sa pagkuha ng currentDate
-        CURRENTDATEButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                DateChooser.setDate(new GregorianCalendar().getTime());
-                System.out.println(DateChooser.getDate());
-            }
+        CURRENTDATEButton.addActionListener(e -> {
+            DateChooser.setDate(new GregorianCalendar().getTime());
+            System.out.println(DateChooser.getDate());
         });
-        ClearButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                customerTextField.setText("");
-                addressTextField.setText("");
-                vatTextField.setText("");
-                itemNameTextField.setText("");
-                DateChooser.setDate(null);
-                companyNametextField.setText("");
-                recieptNumberTextField.setText("");
-                addressTextField.setText("");
-                quantityTextField.setText("");
-                priceTextField.setText("");
-                vatTextField.setText("");
-                logoPathLabel.setText("LOGO PATH");
-                logo=null;
-                amountLabel.setText("0.00");
-                totalAmountLabel.setText("0.00");
-                vatAmountLabel.setText("0.00");
-                if (modelo.getRowCount() > 0) {
-                    for (int i = modelo.getRowCount() - 1; i > -1; i--) {
-                        modelo.removeRow(i);
-                    }
+
+
+        ClearButton.addActionListener(e -> {
+            customerTextField.setText("");
+            addressTextField.setText("");
+            vatTextField.setText("");
+            itemNameTextField.setText("");
+            DateChooser.setDate(null);
+            companyNametextField.setText("");
+            recieptNumberTextField.setText("");
+            addressTextField.setText("");
+            quantityTextField.setText("");
+            priceTextField.setText("");
+            vatTextField.setText("");
+            logoPathLabel.setText("LOGO PATH");
+            logo = null;
+            amountLabel.setText("0.00");
+            totalAmountLabel.setText("0.00");
+            vatAmountLabel.setText("0.00");
+            if (modelo.getRowCount() > 0) {
+                for (int i = modelo.getRowCount() - 1; i > -1; i--) {
+                    modelo.removeRow(i);
                 }
             }
         });
     }
 
     public static void main(String args[]) {
-
-        //For pampaganda lang, I like purple :D
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 System.out.println(info.getName());
