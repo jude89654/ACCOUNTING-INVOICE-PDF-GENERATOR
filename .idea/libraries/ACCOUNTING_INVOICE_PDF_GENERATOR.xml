@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ACCOUNTING-INVOICE-PDF-GENERATOR">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/artifacts/ACCOUNTING_INVOICE_PDF_GENERATOR_jar/ACCOUNTING-INVOICE-PDF-GENERATOR.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
