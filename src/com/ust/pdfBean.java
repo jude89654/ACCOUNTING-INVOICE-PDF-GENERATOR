@@ -4,31 +4,29 @@ package com.ust;
  * Created by Jude on 3/7/2016.
  */
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.ust.model.ItemBean;
-import com.ust.model.RecieptBean;
+import com.ust.model.ReceiptBean;
 
-public class pdfBean {
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+class pdfBean {
 
 
     private static NumberFormat formatter = new DecimalFormat("#.00");
 
-    public static void CreatePDF(ItemBean[] itemBean, RecieptBean person,
-                                 double subAmount, double vat, double total, double vatPercentage,
-                                 File logo, Date date) throws DocumentException, IOException {
+    static void CreatePDF(ItemBean[] itemBean, ReceiptBean person,
+                          double subAmount, double vat, double total, double vatPercentage,
+                          File logo, Date date) throws DocumentException, IOException {
         String directory
                 = person.getCompanyName() + person.getCustomerName() +new Date().getTime()+ ".pdf";
         //init the document
@@ -51,7 +49,6 @@ public class pdfBean {
 
         Image image;
         Font font = FontFactory.getFont("Arial", 30);
-        Chunk chunk = new Chunk();
         Paragraph para = new Paragraph();
         para.setFont(font);
         para.setAlignment(Element.ALIGN_CENTER);
@@ -59,15 +56,11 @@ public class pdfBean {
 
         try {
             if (logo != null) {
-                PdfPCell sel = new PdfPCell();
-
                 image = Image.getInstance(logo.getAbsolutePath());
                 image.scaleToFit(100, 100);
                 para.add(new Chunk(image, 0, 0));
 
             }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,7 +78,7 @@ public class pdfBean {
 
 
         document.add(logoAndCompanyTable);
-        Paragraph paragraph = new Paragraph();
+        Paragraph paragraph;
         paragraph = new Paragraph();
         paragraph.add("SALES INVOICE");
         paragraph.setAlignment(Element.ALIGN_CENTER);
@@ -126,7 +119,7 @@ public class pdfBean {
 
     }
 
-    public static PdfPTable createItemTable(ItemBean[] items, double subAmount, double vat, double total, double vatPercentage) throws DocumentException {
+    private static PdfPTable createItemTable(ItemBean[] items, double subAmount, double vat, double total, double vatPercentage) throws DocumentException {
         PdfPTable table = new PdfPTable(4);
         Rectangle rect = new Rectangle(600, 600);
         table.setWidthPercentage(new float[]{200, 100, 72, 150}, rect);

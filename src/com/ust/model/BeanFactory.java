@@ -14,14 +14,14 @@ public class BeanFactory {
         jaba.setTotal(total);
         return jaba;
     }
-    public static RecieptBean createBean(String companyName,String name, String address, String recieptNo){
-        RecieptBean recieptBean= new RecieptBean();
-        recieptBean.setCompanyName(companyName);
-        recieptBean.setRecieptNumber(recieptNo);
-        recieptBean.setCustomerName(name);
-        recieptBean.setCustomerAddress(address);
+    public static ReceiptBean createBean(String companyName, String name, String address, String recieptNo){
+        ReceiptBean receiptBean = new ReceiptBean();
+        receiptBean.setCompanyName(companyName);
+        receiptBean.setRecieptNumber(recieptNo);
+        receiptBean.setCustomerName(name);
+        receiptBean.setCustomerAddress(address);
 
-        return recieptBean;
+        return receiptBean;
 
     }
 }
